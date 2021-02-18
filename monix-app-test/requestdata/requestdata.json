@@ -1,0 +1,87 @@
+{
+  "applyCredit": {
+    "consents": [
+      {
+        "consentStatus": "2",
+        "consentType": 12
+      }
+    ]
+  },
+  "applyLoan": {
+    "accountNo": "8888888888",
+    "accountType": "1",
+    "creditId": "CI1093302119950876673",
+    "fixedRepayDate": 1,
+    "loanAmount": "10000.00",
+    "otp": "123456",
+    "resourceOwnerId": "DCA0F5D9-08DF-4FB1-BB4B-1CA2B0A37020",
+    "scbAccessToken": "Bearer f9788007-324f-4c32-a527-7d159782ff7e"
+  },
+  "applyPay": {
+    "repayAmount": 10153.69,
+    "repayType": "1"
+  },
+  "creditPass": {
+    "apply_id": "CA1093302111360942080",
+    "customer_id": "1090275675033665536",
+    "result": [
+      {
+        "interest_rate": 0.33,
+        "max_line": 10000,
+        "max_tenor": 12,
+        "product_id": "P123456789111111111",
+        "risk_status": "pass"
+      }
+    ]
+  },
+  "disburseOTP": {
+    "smsBizType": "4"
+  },
+  "getMaintenance": {
+    "errorCode": "M10000"
+  },
+  "getMobileToken": {
+    "mobileNo": "0910000000",
+    "otp": "123456",
+    "smsBizType": 0
+  },
+  "loanPass": {
+    "loanApplyId": "LA1093302132327841792",
+    "loanStatus": "7",
+    "loanTime": "2021-02-01 08:00:00"
+  },
+  "mobileNo": {
+    "mobileNo": "0910000000",
+    "smsBizType": 0
+  },
+  "params": {
+    "accept-language": "en-US",
+    "access-token": "f4095cd0-758b-4e10-a43e-c2534ae1bc4f",
+    "adid": null,
+    "channel-code": "Google Play",
+    "content-type": "application/json",
+    "customerid": "1090275675033665536",
+    "deviceid": "400ff8accd03b7ab",
+    "devicemodel": "MI 8",
+    "refresh-token": "d2209a8c-2a52-48ab-9f93-978d87f562ac",
+    "scb-env": "0",
+    "source-mark": "android",
+    "version": "2.0.4.150"
+  },
+  "repayPass": {
+    "account": "act001",
+    "amount": 10000,
+    "channel": "ATM",
+    "reference1": "1066011130643054592",
+    "reference2": "1067113865642868736",
+    "reference3": "",
+    "request": "confirm",
+    "tranDate": "2019-12-18T12:00:00",
+    "tranID": "12345678"
+  },
+  "riskPass": {
+    "customer_id": "1090275675033665536",
+    "order_sn": "1093302132330266624",
+    "risk_status": "pass"
+  }
+}
