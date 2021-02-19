@@ -6,6 +6,7 @@ from utility import encrypt_util
 from utility.common_unti import CommonUnit
 from monix_data.actual_data import ActualData
 from utility.excel_util import OperationExcel
+from utility.email_unti import SendEmail
 
 
 class RunTest:
@@ -13,10 +14,12 @@ class RunTest:
         self.run = RunMain()
         self.data = GetData()
         self.common_unit = CommonUnit()
+        self.sendEmail=SendEmail()
 
     def go_run_main(self):
         """程序执行入口"""
-
+        pass_count=[]
+        fail_count=[]
         case_lines = self.data.get_case_lines()
         for i in range(1, case_lines):
             self.encrypt_data = ActualData(i)
@@ -39,9 +42,10 @@ class RunTest:
             is_contain = self.common_unit.is_contain(expect, res)
             if is_contain == True:
                 self.data.wirte_result(i, "pass")
+                pass_count.append(i)
             else:
-                self.data.wirte_result(i, "fail")
-
+                self.data.wirte_result(i, str(res))
+                fail_count.append(i)
             depend_case_id = self.data.get_depend_case_id(i)
             if depend_case_id != None:
                 self.oper_excel = OperationExcel()
@@ -55,16 +59,17 @@ class RunTest:
                     depend_fields = depend_field.split(",")
                     for j in range(len(depend_datas)):
                         depend_data_key = depend_datas[j]
-                        depend_value=self.encrypt_data.get_depend_data(depend_data_key,res)
-                        if depend_data_key=="payAmount":
-                            depend_value=depend_value/100
-                        self.data.write_header(depend_request_data,depend_fields[j],depend_value)
+                        depend_value = self.encrypt_data.get_depend_data(depend_data_key, res)
+                        if depend_data_key == "payAmount":
+                            depend_value = depend_value / 100
+                        self.data.write_header(depend_request_data, depend_fields[j], depend_value)
                 else:
                     depend_value = self.encrypt_data.get_depend_data(depend_data, json.loads(res))
-                    self.data.write_header(depend_request_data,depend_field,depend_value)
+                    self.data.write_header(depend_request_data, depend_field, depend_value)
 
             print("-------------------------------------")
             time.sleep(1)
+        self.sendEmail.send_main(pass_count,fail_count)
 
 
 if __name__ == "__main__":
