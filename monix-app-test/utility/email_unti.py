@@ -4,14 +4,15 @@ from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
 import datetime
 import time
+from config.monix_conf import global_config
 
 
 class SendEmail:
     """发送邮件"""
-    global sender
-    global my_pass
-    sender = '997296384@qq.com'  # 发件人邮箱账号
-    my_pass = 'ucrwmxkbvqycbcjd'  # 使用qq邮件作为发送服务器获得的授权码
+    # global sender
+    # global my_pass
+    # sender = '997296384@qq.com'  # 发件人邮箱账号
+    # my_pass = 'ucrwmxkbvqycbcjd'  # 使用qq邮件作为发送服务器获得的授权码
 
     def send_mail(self, receiveList, sub, content):
         # 设置邮件基本内容
@@ -28,7 +29,7 @@ class SendEmail:
         # att1["Content-Disposition"] = 'attachment; filename="result.html"'  # 这里的filename可以任意写，是邮件中附件显示的名字
         # msg.attach(att1)  # 添加附件，如果有多个附件，同理添加
 
-        user = "licongyi" + "<" + str(sender) + ">"
+        user = "licongyi" + "<" + str(global_config.sender) + ">"
         message = MIMEText(content, _subtype='plain', _charset="utf8")
         message['Subject'] = sub
         message['From'] = user
@@ -36,13 +37,12 @@ class SendEmail:
 
         # 发送邮件
         server = smtplib.SMTP_SSL("smtp.qq.com", 465)
-        server.login(sender, my_pass)
+        server.login(global_config.sender, global_config.my_pass)
         server.sendmail(user, receiveList, message.as_string())
         print("邮件发送成功" + str(receiveList))
         server.quit()
 
     def send_main(self, pass_list, fail_list):
-        receiver = ['licongyi01@163.com', 'licongyi@wecash.net']
         sub = "monix app主流程接口自动化测试结果"
         pass_num = float(len(pass_list))
         fail_num = float(len(fail_list))
@@ -52,7 +52,7 @@ class SendEmail:
 
         content = "运行结果个数为%s个\n通过个数为%s个\n失败个数为%s个\n通过率为%s\n失败率为%s" % (
             count_num, pass_num, fail_num, pass_result, fail_result)
-        self.send_mail(receiver, sub, content)
+        self.send_mail(global_config.receiver, sub, content)
 
 
 if __name__ == '__main__':
