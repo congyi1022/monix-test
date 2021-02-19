@@ -8,6 +8,7 @@ from config.monix_conf import global_config
 from utility.json_util import OperationJson
 from utility.db_util import OperationMysql
 from jsonpath_rw import parse, jsonpath
+from utility.common_unti import CommonUnit
 
 
 class ActualData:
@@ -85,41 +86,13 @@ class ActualData:
         male = json_expr.find(res_data)
         return [math.value for math in male][0]
 
-    def get_depend_data1(self,depend_data,res_data):
-        """提取需要的依赖数据"""
-        json_expr = parse(depend_data)
-        male = json_expr.find(res_data)
-        return [math.value for math in male][0]
+
 
 if __name__ == "__main__":
-    data = {
-        "data": {
-            "afterBillingDate": True,
-            "canRollOver": True,
-            "defaultAmount": 153.69,
-            "dueDate": 1614556800,
-            "interest": 153.69,
-            "isOverdue": False,
-            "minClearBillAmount": 153.69,
-            "minRollOverAmount": 153.69,
-            "overdueDays": 10,
-            "overdueInterest": 0.0,
-            "principal": 0.0,
-            "repayType": "0",
-            "repayTypes": [
-                "0",
-                "1",
-                "2"
-            ],
-            "rollOverAmount": 10000.0,
-            "totalBalance": 10153.69
-        },
-        "errorDescription": "success",
-        "success": "1"
-    }
-    a=ActualData(1)
-    depend_data='["data.totalBalance"]'
-    for i in list(depend_data):
-        res=a.get_depend_data(i,data)
+    data1 = {'prefix': '|', 'taxId': '010556300360300', 'customerId': '1090275675033665536',
+             'payApplyNo': '1093299351386030080', 'payAmount': 1015369.0}
+    a = ActualData(1)
+    depend_data = ['payApplyNo','payAmount']
+    for i in depend_data:
+        res = a.get_depend_data(i, data1)
         print(res)
-

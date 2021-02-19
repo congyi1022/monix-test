@@ -10,7 +10,7 @@
   "applyLoan": {
     "accountNo": "8888888888",
     "accountType": "1",
-    "creditId": "CI1093302119950876673",
+    "creditId": "CI1093418661740969984",
     "fixedRepayDate": 1,
     "loanAmount": "10000.00",
     "otp": "123456",
@@ -18,11 +18,11 @@
     "scbAccessToken": "Bearer f9788007-324f-4c32-a527-7d159782ff7e"
   },
   "applyPay": {
-    "repayAmount": 10153.69,
+    "repayAmount": 10162.73,
     "repayType": "1"
   },
   "creditPass": {
-    "apply_id": "CA1093302111360942080",
+    "apply_id": "CA1093418653151035392",
     "customer_id": "1090275675033665536",
     "result": [
       {
@@ -46,7 +46,7 @@
     "smsBizType": 0
   },
   "loanPass": {
-    "loanApplyId": "LA1093302132327841792",
+    "loanApplyId": "LA1093418674117935104",
     "loanStatus": "7",
     "loanTime": "2021-02-01 08:00:00"
   },
@@ -56,24 +56,24 @@
   },
   "params": {
     "accept-language": "en-US",
-    "access-token": "f4095cd0-758b-4e10-a43e-c2534ae1bc4f",
+    "access-token": "cca041ea-204e-473b-aa94-d4503c468b46",
     "adid": null,
     "channel-code": "Google Play",
     "content-type": "application/json",
     "customerid": "1090275675033665536",
     "deviceid": "400ff8accd03b7ab",
     "devicemodel": "MI 8",
-    "refresh-token": "d2209a8c-2a52-48ab-9f93-978d87f562ac",
+    "refresh-token": "b802238a-16a1-49dc-a4aa-fd7894a7f3c6",
     "scb-env": "0",
     "source-mark": "android",
     "version": "2.0.4.150"
   },
   "repayPass": {
     "account": "act001",
-    "amount": 10000,
+    "amount": 10162.73,
     "channel": "ATM",
-    "reference1": "1066011130643054592",
-    "reference2": "1067113865642868736",
+    "reference1": "1090275675033665536",
+    "reference2": "1093429074430754816",
     "reference3": "",
     "request": "confirm",
     "tranDate": "2019-12-18T12:00:00",
@@ -81,7 +81,7 @@
   },
   "riskPass": {
     "customer_id": "1090275675033665536",
-    "order_sn": "1093302132330266624",
+    "order_sn": "1093418674120359936",
     "risk_status": "pass"
   }
 }
