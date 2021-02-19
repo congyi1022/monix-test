@@ -61,11 +61,6 @@ class ActualData:
             post_data["loanApplyId"] = res['loan_apply_id']
         print("请求数据" + str(post_data))
 
-        # if is_depend != None:
-        #     self.depend = DependData()
-        #     depend_filed = self.getData.get_depend_filed(self.row)
-        #     depend_data = self.depend.get_depend_data(self.row)
-        #     post_data[depend_filed] = depend_data
 
         if encrypt == True:
             return encrypt_util.encrypt(post_data)
@@ -85,14 +80,3 @@ class ActualData:
         json_expr = parse(depend_data)
         male = json_expr.find(res_data)
         return [math.value for math in male][0]
-
-
-
-if __name__ == "__main__":
-    data1 = {'prefix': '|', 'taxId': '010556300360300', 'customerId': '1090275675033665536',
-             'payApplyNo': '1093299351386030080', 'payAmount': 1015369.0}
-    a = ActualData(1)
-    depend_data = ['payApplyNo','payAmount']
-    for i in depend_data:
-        res = a.get_depend_data(i, data1)
-        print(res)
