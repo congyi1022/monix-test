@@ -61,7 +61,6 @@ class ActualData:
             post_data["loanApplyId"] = res['loan_apply_id']
         print("请求数据" + str(post_data))
 
-
         if encrypt == True:
             return encrypt_util.encrypt(post_data)
         else:
