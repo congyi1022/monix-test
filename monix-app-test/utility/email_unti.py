@@ -14,7 +14,7 @@ class SendEmail:
     # sender = '997296384@qq.com'  # 发件人邮箱账号
     # my_pass = 'ucrwmxkbvqycbcjd'  # 使用qq邮件作为发送服务器获得的授权码
 
-    def send_mail(self, receiveList, sub, content):
+    def send_test_mail(self, receiveList, sub, content):
         # 设置邮件基本内容
         # msg = MIMEMultipart()  # 创建一个带附件的实例
         # msg['Subject'] = sub  # 设置邮件标题
