@@ -56,14 +56,14 @@
   },
   "params": {
     "accept-language": "en-US",
-    "access-token": "2c3fb138-18a3-420b-8f9c-a6e8effaa41d",
+    "access-token": null,
     "adid": null,
     "channel-code": "Google Play",
     "content-type": "application/json",
-    "customerid": "1090275675033665536",
+    "customerid": null,
     "deviceid": "400ff8accd03b7ab",
     "devicemodel": "MI 8",
-    "refresh-token": "15c340ba-4048-4b5f-af89-6666a9c7d509",
+    "refresh-token": null,
     "scb-env": "0",
     "source-mark": "android",
     "version": "2.0.4.150"
